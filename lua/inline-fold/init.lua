@@ -49,14 +49,4 @@ M.Fold_attributes_for_node = function(node)
   end
 end
 
-function M.CollapseAll()
-  local lang_tree = require('nvim-treesitter.parsers').get_parser(0)
-  if lang_tree == nil then return end
-
-  for _, tree in ipairs(lang_tree:trees()) do
-    local root = tree:root()
-    M.Fold_attributes_for_node(root)
-  end
-end
-
 return M
