@@ -37,16 +37,4 @@ M.fold_node_at_cursor = function()
   M.fold_node(tsnode.get_node_at_cursor())
 end
 
-M.Fold_attributes_for_node = function(node)
-  if node == nil then return end
-
-  if node:child_count() == 0 and node:type() == 'attribute_value' then
-    M.Fold_node(node)
-  end
-
-  for child, _ in node:iter_children() do
-    M.Fold_attributes_for_node(child)
-  end
-end
-
 return M
