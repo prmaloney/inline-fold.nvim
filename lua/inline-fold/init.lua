@@ -51,7 +51,6 @@ vim.api.nvim_create_autocmd('CursorMoved', {
     local cursor_row, cursor_col = unpack(vim.api.nvim_win_get_cursor(0))
     for _, value in ipairs(marks) do
       local mark_start_row, mark_start_col, mark_end_row, mark_end_col = unpack(value)
-      print(cursor_row, cursor_col, mark_start_row + 1, mark_start_col + 2)
       if cursor_row == mark_start_row + 1 and cursor_col == mark_start_col + 2 then
         vim.api.nvim_win_set_cursor(0, { mark_end_row + 1, mark_end_col + 1 })
       elseif cursor_row == mark_end_row + 1 and cursor_col == mark_end_col then
